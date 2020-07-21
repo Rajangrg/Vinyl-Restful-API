@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Vinyl;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\VinylModel;
 
 class VinylController extends Controller
 {
@@ -14,7 +15,8 @@ class VinylController extends Controller
      */
     public function index()
     {
-        //
+        $vinylCollection = VinylModel::get();
+        return response()->json($vinylCollection,200);
     }
 
     /**
