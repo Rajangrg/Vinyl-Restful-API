@@ -8,8 +8,8 @@
 </p>
 
 # project Outcome
-<img src="FinalOutcomePicture/get.PNG">
-<img src="FinalOutcomePicture/Post.PNG">
+<img src="FinalOutcome/get.PNG">
+<img src="FinalOutcome/Post.PNG">
 
 ## About Laravel
 
