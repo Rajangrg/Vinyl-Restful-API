@@ -9,33 +9,13 @@ use Illuminate\Support\Facades\Validator;
 
 class VinylController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $vinylCollection = VinylModel::get();
         return response()->json($vinylCollection,200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validationRules = [
@@ -51,12 +31,7 @@ class VinylController extends Controller
       return response()->json($createVinyl,200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $getVinylById = VinylModel::find($id);
@@ -67,24 +42,7 @@ class VinylController extends Controller
         return response()->json($getVinylById, 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $getVinylById = VinylModel::find($id);
@@ -95,12 +53,7 @@ class VinylController extends Controller
         return response()->json(['message:'=>'update successfully'],200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $getVinylById = VinylModel::find($id);
