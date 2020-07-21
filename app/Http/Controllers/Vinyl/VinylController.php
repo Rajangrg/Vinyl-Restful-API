@@ -15,7 +15,6 @@ class VinylController extends Controller
         return response()->json($vinylCollection,200);
     }
 
-
     public function store(Request $request)
     {
         $validationRules = [
@@ -27,10 +26,10 @@ class VinylController extends Controller
       if($validator->fails()){
           return response()->json($validator->errors(), 400);
       }
+
       $createVinyl = VinylModel::create($request->all());
       return response()->json($createVinyl,200);
     }
-
 
     public function show($id)
     {
@@ -42,7 +41,6 @@ class VinylController extends Controller
         return response()->json($getVinylById, 200);
     }
 
-
     public function update(Request $request, $id)
     {
         $getVinylById = VinylModel::find($id);
@@ -52,7 +50,6 @@ class VinylController extends Controller
         $getVinylById->update($request->all());
         return response()->json(['message:'=>'update successfully'],200);
     }
-
 
     public function destroy($id)
     {
