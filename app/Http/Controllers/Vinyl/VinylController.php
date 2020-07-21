@@ -38,12 +38,12 @@ class VinylController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
+        $validationRules = [
             'bandName' =>'required|min:2',
             'musicGenre' => 'required'
         ];
-      $validator = Validator::make($request->all(), $rules);
-      
+      $validator = Validator::make($request->all(), $validationRules);
+
       if($validator->fails()){
           return response()->json($validator->errors(), 400);
       }
