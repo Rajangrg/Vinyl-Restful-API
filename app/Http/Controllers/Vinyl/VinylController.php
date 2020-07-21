@@ -60,7 +60,7 @@ class VinylController extends Controller
     public function show($id)
     {
         $getVinylById = VinylModel::find($id);
-        
+
         if(is_null($getVinylById)){
             return response()->json(['message:'=>'No ID found'], 404);
         }
@@ -87,7 +87,7 @@ class VinylController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -98,6 +98,11 @@ class VinylController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $getVinylById = VinylModel::find($id);
+        if(is_null($getVinylById)){
+            return response()->json(['message:'=>'No ID found'], 404);
+        }
+        $getVinylById->delete();
+        return response()->json(null, 204);
     }
 }
