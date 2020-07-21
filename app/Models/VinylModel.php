@@ -10,6 +10,7 @@ class VinylModel extends Model
     
     protected $fillable = [
       'bandName',
+      'vinylName',
       'label',
       'musicGenre',
       'musicGenrePrimary',

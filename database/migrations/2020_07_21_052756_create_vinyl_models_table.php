@@ -15,6 +15,7 @@ class CreateVinylModelsTable extends Migration
     {
         Schema::create('vinyls', function (Blueprint $table) {
             $table->id();
+            $table->string('vinylName');
             $table->string('bandName');
             $table->string('label');
             $table->string('musicGenre');
@@ -25,6 +26,7 @@ class CreateVinylModelsTable extends Migration
         });
         DB::connection('mysql')->table('vinyls')->insert([
             [
+                'vinylName' => 'Led Zeppelin 1 (2014 Vinyl Reissue)',
                 'bandName' => 'Led Zeppelin',
                 'label' => 'Atlantic / Swan Song / Warner',
                 'musicGenre' => 'Rock / Hard Rock',

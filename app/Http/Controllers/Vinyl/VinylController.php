@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Vinyl;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\VinylModel;
+use Illuminate\Support\Facades\Validator;
 
 class VinylController extends Controller
 {
@@ -37,7 +38,17 @@ class VinylController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'bandName' =>'required|min:2',
+            'musicGenre' => 'required'
+        ];
+      $validator = Validator::make($request->all(), $rules);
+      
+      if($validator->fails()){
+          return response()->json($validator->errors(), 400);
+      }
+      $createVinyl = VinylModel::create($request->all());
+      return response()->json($createVinyl,200);
     }
 
     /**
