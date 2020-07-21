@@ -59,7 +59,12 @@ class VinylController extends Controller
      */
     public function show($id)
     {
-        //
+        $getVinylById = VinylModel::find($id);
+        
+        if(is_null($getVinylById)){
+            return response()->json(['message:'=>'No ID found'], 404);
+        }
+        return response()->json($getVinylById, 200);
     }
 
     /**
